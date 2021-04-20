@@ -12,13 +12,13 @@ function excuses() {
     let c3 = Math.floor(Math.random() * c.length);
     let d4 = Math.floor(Math.random() * d.length);
 
-    let sentences = a[a1] + " " + b[b2] + " " + c[c3] + " " + d[d4] + ".";
+    let sentences ="<b>"+a[a1] + " " + b[b2] + " " + c[c3] + " " + d[d4] + "."+"</b>";
 
-    return(sentences);
-
+    return(sentences); 
 }
 
+ function callFunctionGenerator(){
+     document.getElementById("algo").innerHTML=excuses();
+ }
+
 console.log(excuses());
-
-
-document.querySelector("algo").innerHTML=excuses();
