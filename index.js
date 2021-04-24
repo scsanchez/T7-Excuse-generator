@@ -1,24 +1,37 @@
 //Variables
 
-function excuses() {
+function generateExcuse() {
 
-    let a = ["Mi" , "El"];
-    let b = ["perro", "ordenador", "telefono"];
-    let c = ["comio", "se rompio"];
-    let d = ["la pierna", "galletas", "cuando estaba corriendo", "en el parque"];
+    const pronoum = ["Mi", "El", "Tu"];
+    const object = ["perro", "ordenador", "telefono"];
+    const action = ["comio", "se rompio"];
+    const location = ["la pierna", "galletas", "cuando estaba corriendo", "en el parque"];
 
-    let a1 = Math.floor(Math.random() * a.length);
-    let b2 = Math.floor(Math.random() * b.length);
-    let c3 = Math.floor(Math.random() * c.length);
-    let d4 = Math.floor(Math.random() * d.length);
+    const choosenPronoumIndex = generateRandomNumberUpTo(pronoum.length);
+    const choosenObjectIndex = generateRandomNumberUpTo(object.length);
+    const choosenActionIndex = generateRandomNumberUpTo(action.length);
+    const choosenLocationIndex = generateRandomNumberUpTo(location.length);
 
-    let sentences ="<b>"+a[a1] + " " + b[b2] + " " + c[c3] + " " + d[d4] + "."+"</b>";
+    const choosenPronoum = pronoum[choosenPronoumIndex]
+    const choosenObject = object[choosenObjectIndex];
+    const choosenAction = action[choosenActionIndex];
+    const choosenLocation = location[choosenLocationIndex];
 
-    return(sentences); 
+    const sentence = generateSentence(choosenPronoum, choosenObject, choosenAction, choosenLocation);
+
+    return sentence;
 }
 
- function callFunctionGenerator(){
-     document.getElementById("algo").innerHTML=excuses();
- }
+function generateSentence(pronoum, object, action, location) {
+    return `<b>${pronoum} ${object} ${action} ${location}. </b>`;
+}
 
-console.log(excuses());
+function showExcuse() {
+    document.getElementById("excuse").innerHTML = generateExcuse();
+}
+
+function generateRandomNumberUpTo(maximun) {
+    return Math.floor(Math.random() * maximun);
+}
+
+console.log(generateExcuse());
